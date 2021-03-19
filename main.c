@@ -131,14 +131,6 @@ void globale(void){
     printf("Au revoir et à bientot dans notre ludothèque\n");
 }
 
-void fonction(void){
-    for (int i = 0; i <5; i++)
-    {
-        printf("Ma fonction\n");
-    }
-    
-}
-
 int main(void){
     globale();
     return 0;

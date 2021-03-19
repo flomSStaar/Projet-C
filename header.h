@@ -11,6 +11,8 @@
 #define FICEMPB "data/emprunts.bin"
 #define FICEMP "data/emprunts.txt"
 
+#define VARCHAR char
+
 /*------------------------------------------------Structures------------------------------------------------*/
 
 typedef enum{
