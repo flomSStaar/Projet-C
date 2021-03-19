@@ -1,0 +1,77 @@
+<--------------------Structure des fichiers-------------------->
+
+Les fichiers 'adherents.bin','emprunts.bin' comporte respectivement le prochain numéro d'adherent,d'emprunt ainsi que tous les adherents/emprunts déjà enregistrés.
+Le fichier 'jeu.bin' comporte tous les jeux présents dans la ludothèque.
+Le fichier 'reservation.bin' comporte le nombre de reservations actuels,le prochain numéro de reservation ainsi que toutes les reservations déjà enregistrées.
+
+Les fichiers textuels sont ici présents pour pouvoir lire les informations enregistrées. 
+Les fichiers utilisés par le programme pour récupérer les données sont les fichiers binaires, évitant ainsi à l'ordinateur de convertir les données.
+
+<--------------------Données mises en place-------------------->
+
+Le type TypeJeu est définit par une énumération des possibilités(construction, plateau, tuile, carte, logique) de type du jeu. Ce type permet de gerer plus facilement le type du jeu car sinon il faudrait manipuler des chaines de caractères qui serait très contraignant.
+
+Le type Jeu comporte un identifiant IDjeu qui est une chaine de caractères, le nom entier du jeu qui est aussi une chaine de caractères, un type de jeu définit par le type TypeJeu vu précédemment, un entier qui correspond au nombre d'exemplaires disponibles pour le jeu.
+
+Le type Emprunt comporte un entier qui représente l'identifiant de l'emprunt, un second entier correspond au numéro de l'adhérent qui emprunte, une chaine de caractères qui correspond au jeu emprunté et un type Date qui correspond à la date d'emprunt.
+
+Le type Reservation comporte un entier correspondant à l'identifiant IDresa, un second entier correspondant à un identifiant IDadherent, ue chaine de caractère contenant l'ID du jeu IDjeu et la date de réservation dateRes. 
+
+Le type Adhérent comporte un entier correspondant à l'identifiant IDAdherent, un sexe, un prénom contenu dans une chaine de caractère, un nom contenu dans une chaine de caractère, un type Date correspondant à la date d'inscription et un entier correspondant au nombre d'emprunt en cours.
+
+Les Jeux, les Emprunts et les Adhérents seront manipulés grâce aux listes chainées tandis que les Réservations seront gérées grâce à un tableau de pointeurs dynamique.
+Nous avons choisi les listes pour les trois premiers car les listes sont plus facile et plus efficace lors du tri. En revanche, nous avons choisi un tableau de pointeurs dynamique pour les Réservations car il n'y a pas besoin de tri, de plus lors de la suppression d'une réservation seulement les pointeurs des reservations seront deplacés et non toutes les structures Reservation.
+
+<--------------------Liste des fonctionnalités proposées-------------------->
+
+Toutes les fonctionnalités sont utilisables sans problème.
+
+1. Chargement des quatre fichiers en mémoire :
+ 
+    On utilise les fichiers binaires lors du chargement pour assurer la rapidité du programme.
+    Le chargement s'effectue au lancement du programme.
+    
+2. Affichage de la liste des jeux disponibles triée par type de Jeux, puis par ordre alphabétique de leur nom :
+    
+    On affiche la liste des jeux disponibles à l'aide de la fonction afficherJeuxDispo().
+    Le message "Aucun jeu" est affiché s'il n'y aucun jeu.
+    
+3. Affichage de la liste des emprunts en cours en mentionnant : le nom du jeu, l’identité de l’emprunteur ainsi que la date de l’emprunt :
+
+    On affiche la liste des emprunts en cours à l'aide la fonction afficherListeEmprunts().
+    Le message "Aucun emprunt en cours" est affiché s'il n'y aucun emprunt.
+
+4. Affichage de la liste des réservations pour un jeu donné :
+
+    L'utilisateur saisit l'identifiant du jeu dont il veut afficher les reservations.
+    L'affichage se fait ensuite en fonction du jeu saisi. Le message "Aucune reservation pour ce jeu" est affiché s'il n'y aucune reservation.
+
+5. Saisie et enregistrement d’un nouvel emprunt :
+    
+    L'utilisateur saisit la date du jour, puis saisit l'identifiant du jeu souhaité. Si le jeu n'est plus disponible le programme lui propose de le réserver.
+    Si le jeu est disponible, l'utilisateur est invité à saisir ensuite son numéro d'adhérent ou créé un nouveau compte s'il est nouveau.
+    Le programme vérifie, si l'adhérent n'est pas nouveau, s'il peut emprunter sous les modalités suivantes: moins de trois jeux déjà empruntés, adhésion à la ludothèque encore valide, si la date limite de rendu pour un jeu n'est pas dépassé.
+    S'il respecte toutes ces conditions l'emprunt est effectué.
+
+6.Saisie et enregistrement d’une nouvelle réservation :
+
+    L'utilisateur saisit les informations nécéssaires à la réservation.
+    Si jamais l'utilisateur n'est pas encore enregistré dans la base de données, un compte adhérent lui sera alors créé.
+
+7. Retour d’un jeu : 
+
+    L'utilisateur va saisir son numéro d'adhérent. La liste de ses emprunts va s'afficher (ou le message "Aucun emprunt en cours pour cet adhérent") et il va pouvoir rentrer le numéro d'emprunt du jeu qu'il veut retourné.
+    Si jamais le jeu est réservé par quelqu'un d'autre, il lui sera directement envoyé et la reservation deviendra un emprunt.
+    
+8. Annulation d’une réservation :
+
+    L'utilisateur peut afficher la liste des réservations en cours.
+    Il va ensuite entrer le numéro de la réservation qu'il veut supprimer.
+    Une fois ceci fait, la réservation est supprimée.
+
+9. Sauvegarde de l’ensemble des données dans les quatre fichiers : 
+
+    Le programme possède une fonctionnalité de sauvegarde instantané, qui sauvegarde les données dans les fichiers binaires et textuels.
+    La sauvegarde des données s'effectue aussi lors de la fermeture du programme.
+    La sauvegarde dans les fichiers binaires permet une meilleure vitesse de chargement lors de la prochaine ouverture du programme.
+    La sauvegarde dans les fichiers textuels permet de lire les informations clairement.

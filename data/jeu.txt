@@ -1,0 +1,25 @@
+Nom du jeu: Carcassone
+Identifiant du jeu: CAR
+Type de jeu: construction
+Nombre d'exemplaires: 4
+
+Nom du jeu: Donjons et Dragons
+Identifiant du jeu: DD
+Type de jeu: plateau
+Nombre d'exemplaires: 1
+
+Nom du jeu: Bataille
+Identifiant du jeu: BAT
+Type de jeu: carte
+Nombre d'exemplaires: 2
+
+Nom du jeu: UNO c'est fun
+Identifiant du jeu: UNO
+Type de jeu: carte
+Nombre d'exemplaires: 2
+
+Nom du jeu: Pictionary
+Identifiant du jeu: PIC
+Type de jeu: logique
+Nombre d'exemplaires: 3
+
